@@ -1,3 +1,5 @@
+# data warehousing for the supply chain of e-commerce firm 
+
 CREATE OR REPLACE VIEW dw_v4 AS
 SELECT Orders.OrderID, STR_TO_DATE(Orders.OrderDate,"%m/%d/%Y") AS OrderDate, Orders.EmployeeID, 
 	STR_TO_DATE(Orders.RequiredDate,"%m/%d/%Y") AS RequiredDate, 
@@ -46,7 +48,7 @@ ORDER BY OrderID;
 
 SELECT * FROM dw_v4;
 
-
+# Using the warehouse to discover business intelligence: employment, geographic, shipping and customer managemnet
 -- Query 1:checked
 -- From order value, which salesman should we give higher compensation?
 SELECT  YEAR(OrderDate),CONCAT(FirstName, ' ', LastName) AS Salesperson, ROUND(SUM(OrderAmount),2) AS orderValuebySalesperson
